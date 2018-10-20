@@ -14,13 +14,7 @@ dt = .04;                           % temporal step size
 freq = 2;                           % write to Theta every 'freq' years (positive integer). If set to 'dt', every frame will be written. 
 prog = 10;                          % every 'prog' years, data will print to screen.
 
-% INITIAL CONDITIONS
-% theta_0(x,y) = init0/(2*pi*init_v) * exp( -( (x-init_C)^2 + (y-init_D)^2 ) / (2*init_v))
-init_C = 2;         % initial # cooperators in average group - x_mean for normal dist
-init_D = 48;        % initial # defectors in average group - y_mean for normal dist 
-init_v = 5;         % initial variance for normal distribution 
-init0 = 471.25;     % scaling parameter - proportional to initial # of groups 
-
+ 
 % KIN SELECTION
 r = 0.15;            % base case relatedness. Hamilton's rule: rb>c => cooperation 
 b = 0.4; c = 0.1;     % benefit & cost parameters in Prisoner's Dilemma 
@@ -33,7 +27,7 @@ s = 0.025;           % birth/death rate scaling factor for within-group dynamics
 rho = 1;            % base case group-level events (benchmark rho = 1)
 e0 = 0.025; phi = 1; % extinction rate e(x,y) = rho*e0 * Groups / (-phi*x+y)^2 
 lambda = 0.00025;    % fissioning rate f(x,y) = rho*lambda*(x+y)
-psi = 1;            % fission density = (1-psi)*h_1 + psi*h_2 
+psi = 0;            % fission density = (1-psi)*h_1 + psi*h_2 
 mu = 0.0025;         % per individual migration rate (avg rate a person switches groups per time unit dt) 
 
 % OTHER PARAMETERS
