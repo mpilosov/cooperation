@@ -1,18 +1,24 @@
 FROM jupyter/minimal-notebook
 
+# Octave
 USER root
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends octave \
-        octave-symbolic octave-miscellaneous \
+    apt-get install -y --no-install-recommends \
         python-sympy \
-        gnuplot ghostscript && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+        octave \
+        octave-symbolic \
+        octave-miscellaneous \
+        octave-io \
+        octave-control \
+        gnuplot \
+        ghostscript && \
+        apt-get -qq clean && rm -rf /var/lib/apt/lists/*
 
 USER $NB_UID
 
 RUN conda install --quiet --yes \
     'octave_kernel' && \
-    conda clean -tipsy && \
-fix-permissions $CONDA_DIR
+    conda clean --all -f -y && \
+    fix-permissions $CONDA_DIR && \
+    
