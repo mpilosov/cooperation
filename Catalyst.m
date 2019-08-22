@@ -29,6 +29,10 @@ e0 = 0.025; phi = 1; % extinction rate e(x,y) = rho*e0 * Groups / (-phi*x+y)^2
 lambda = 0.00025;    % fissioning rate f(x,y) = rho*lambda*(x+y)
 psi = 0;            % fission density = (1-psi)*h_1 + psi*h_2 
 mu = 0.0025;         % per individual migration rate (avg rate a person switches groups per time unit dt) 
+init0 = 471.25;
+init_v = 5;
+init_D=48;
+init_C=2;
 
 % OTHER PARAMETERS
 % mutC=0; mutD=0;   % mutation rates for coops/defecs (future work)
